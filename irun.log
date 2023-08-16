@@ -1,0 +1,71 @@
+irun(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s086: Started on Aug 16, 2023 at 11:32:17 IST
+irun
+	fifo.sv
+Recompiling... reason: file './fifo.sv' is newer than expected.
+	expected: Wed Aug 16 11:08:47 2023
+	actual:   Wed Aug 16 11:31:52 2023
+file: fifo.sv
+       std::randomize(data_in);
+                     |
+ncvlog: *W,FUNTSK (fifo.sv,17|21): function called as a task without void'().
+     input_fifo.read();
+                   |
+ncvlog: *W,FUNTSK (fifo.sv,73|19): function called as a task without void'().
+     input_fifo.read();
+                   |
+ncvlog: *W,FUNTSK (fifo.sv,87|19): function called as a task without void'().
+	module worklib.test:sv
+		errors: 0, warnings: 2
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		$unit_0x0217c742
+		test
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+     $display("data that is written in order = %0p",array);
+                                                  |
+ncelab: *W,IGNFMT (./fifo.sv,66|50): Illegal width specifier in format ignored (%0p).
+     $display("data that is written in order = %0p",array);
+                                                  |
+ncelab: *W,IGNFMT (./fifo.sv,85|50): Illegal width specifier in format ignored (%0p).
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.test:sv <0x35367932>
+			streams:   3, words:  9240
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                    Instances  Unique
+		Modules:                    1       1
+		Registers:                 30      32
+		Initial blocks:             3       3
+		Compilation units:          1       1
+		SV Class declarations:      3       3
+		SV Class specializations:   3       3
+	Writing initial simulation snapshot: worklib.test:sv
+Loading snapshot worklib.test:sv .................... Done
+SVSEED default: 1
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+ncsim> source /home/installs/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> run
+-----Performing write operation 40 times---
+FIFO is empty
+FIFO is full
+data that is written in order = '{'h16874, 'h12011, 'h405d, 'hf485, 'h3bcb, 'h19689, 'hcfcc, 'h13da0, 'h11f4d, 'hd1fc, 'hdd3c, 'h5e37, 'h121a4, 'h6b3d, 'h15608, 'h56cf, 'he68, 'h1bfeb, 'h1ea87, 'h1e12a, 'h73cb, 'h1ecca, 'h103a1, 'h764f, 'h19a0e, 'h1cd84, 'h1ca97, 'h59c3, 'h91f1, 'h1fc29, 'h131d2, 'h17ed0}
+----Performing read operation 3 times------
+data being read 92276
+CRC = 0
+data being read 73745
+CRC = 0
+data being read 16477
+CRC = 0
+-----Performing write operation 1 time---
+data that is written in order = '{'hf485, 'h3bcb, 'h19689, 'hcfcc, 'h13da0, 'h11f4d, 'hd1fc, 'hdd3c, 'h5e37, 'h121a4, 'h6b3d, 'h15608, 'h56cf, 'he68, 'h1bfeb, 'h1ea87, 'h1e12a, 'h73cb, 'h1ecca, 'h103a1, 'h764f, 'h19a0e, 'h1cd84, 'h1ca97, 'h59c3, 'h91f1, 'h1fc29, 'h131d2, 'h17ed0, 'h12096}
+----Performing read operation 1 time------
+data being read 62597
+ncsim: *W,RNQUIE: Simulation is complete.
+ncsim> exit
+TOOL:	irun(64)	15.20-s086: Exiting on Aug 16, 2023 at 11:32:20 IST  (total: 00:00:03)
