@@ -8,13 +8,13 @@ virtual class fifo;
     class fifo_imp extends fifo;
       static int counter;
       bit [16-1:0] data_in;
-      bit [16:0] new_data_in; // data_in with crc bit
       
       function int write(); 
        bit crc_bit;
        int wr_enb = 1;  
        counter = counter+1;    
        std::randomize(data_in);
+        $display("written data = %0d",data_in);
        return data_in;
   endfunction
     
